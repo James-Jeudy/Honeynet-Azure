@@ -18,7 +18,7 @@ In this project, I built a mini honeynet in Azure and ingested log sources from 
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+Here are the listed components that were found in the architecture of the honeypot in Azure:
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
@@ -28,28 +28,31 @@ The architecture of the mini honeynet in Azure consists of the following compone
 - Azure Storage Account
 - Microsoft Sentinel
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open. Microsoft Entra ID was used to create users, assign them roles, and login attempts were generated from the same users. Kusto Query Language(KQL) was used to gather logs inside of the Log Analytics workspace, and was used to create the attack world maps. 
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint.
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+![NSG Allowed Inbound Malicious Flows](![NSG-Malicious-Allowed-In before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/82947c3f-b953-492e-9a73-629452100632)
+)<br>
+![Linux Syslog Auth Failures](![Syslos-SSH-Auth-Fail Before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/6de95a14-2f00-4723-9218-e8200d2c9795)
+)<br>
+![Windows RDP/SMB Auth Failures](![Windows-RDP-SMB-Auth-fail json before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/eba40a16-ed12-4187-8394-90e219873037)
+)<br>
 
 ## Metrics Before Hardening / Security Controls
 
 The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2023-03-15 17:04:29
-Stop Time 2023-03-16 17:04:29
+Start Time 2024-02-14 02:48:56
+Stop Time 2024-02-14 02:48:56
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 19470
-| Syslog                   | 3028
-| SecurityAlert            | 10
-| SecurityIncident         | 348
-| AzureNetworkAnalytics_CL | 843
+| SecurityEvent            | 132838
+| Syslog                   | 23188
+| SecurityAlert            | 7
+| SecurityIncident         | 270
+| AzureNetworkAnalytics_CL | 103
 
 ## Attack Maps Before Hardening / Security Controls
 
@@ -58,19 +61,29 @@ Stop Time 2023-03-16 17:04:29
 ## Metrics After Hardening / Security Controls
 
 The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+Start Time 2024-02-19 02:30:09
+Stop Time	2024-02-20 2:30:09
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
+| SecurityEvent            | 17357
+| Syslog                   | 1
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
 
+## Percentage of Improvement After Hardening Environment
+
+| Metric                   | Change
+| ------------------------ | -----
+| SecurityEvent            | -86.93%
+| Syslog                   | -85.71%
+| SecurityAlert            | -100%
+| SecurityIncident         | -100%
+| AzureNetworkAnalytics_CL | -100%
+
 ## Conclusion
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+In this project, a honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was utilized to trigger alerts and create incidents based on the ingested logs from Logs Workspace. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing some security measures like NIST 800-53, in particular Boundary Protection. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their high effectiveness.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls. Either way, this was a wonderful project that helped me improve my skillset and also provided continuous learning after just passing my Security Blue Team Level One Exam!
