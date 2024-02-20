@@ -14,7 +14,6 @@ In this project, I built a mini honeynet in Azure and ingested log sources from 
 ## Architecture Before Hardening / Security Controls
 ![Unsecured Azure Environment](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/1bfdb22d-6e09-493e-836d-cd08b602a6f4)
 
-
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
 
@@ -33,12 +32,11 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint.
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](![NSG-Malicious-Allowed-In before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/82947c3f-b953-492e-9a73-629452100632)
-)<br>
-![Linux Syslog Auth Failures](![Syslos-SSH-Auth-Fail Before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/6de95a14-2f00-4723-9218-e8200d2c9795)
-)<br>
-![Windows RDP/SMB Auth Failures](![Windows-RDP-SMB-Auth-fail json before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/eba40a16-ed12-4187-8394-90e219873037)
-)<br>
+![NSG-Malicious-Allowed-In before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/b3eaf14d-9130-457c-8260-7f95d7fe1cdf)
+![Syslos-SSH-Auth-Fail Before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/055d5e1b-ad1b-48e2-86a4-e25434bb5003)
+![Windows-RDP-SMB-Auth-fail json before](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/5ae4a6ac-b257-4f8e-be2c-f1182671b900)
+
+
 
 ## Metrics Before Hardening / Security Controls
 
