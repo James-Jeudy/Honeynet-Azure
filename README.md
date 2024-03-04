@@ -32,7 +32,7 @@ Here are the listed components that were found in the architecture of the honeyp
 - Azure Storage Account
 - Microsoft Sentinel
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open. Microsoft Entra ID was used to create users, assign them roles, and login attempts were generated from the same users. Kusto Query Language(KQL) was used to gather logs inside of the Log Analytics workspace, and was used to create the attack world maps. 
+For the "BEFORE" metrics, all resources were originally deployed and exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open. Microsoft Entra ID was used to create users, assign them roles, and login attempts were generated from the same users. Kusto Query Language(KQL) was used to gather logs inside of the Log Analytics workspace, and was used to create the attack world maps. 
 
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint.
 
