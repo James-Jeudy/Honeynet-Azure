@@ -14,11 +14,13 @@ In this project, I built a mini SOC/Honeynet in Azure and ingested log sources f
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
 ## Architecture Before Hardening / Security Controls
-![image](https://github.com/James-Jeudy/Honeynet-Azure/assets/160562010/f4665663-6da7-4023-accd-0bd233067d2c)
+![Azure + honeynet 1](https://github.com/James-Jeudy/SOC-Honeynet-Azure/assets/160562010/f663ae9f-61ed-49d0-b438-4fbfb05045ae)
+
 
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+![Soc + honeynet 3](https://github.com/James-Jeudy/SOC-Honeynet-Azure/assets/160562010/4f4e0180-99f8-4c82-bb28-4d889e9a1974)
+
 
 Here are the listed components that were found in the architecture of the honeypot in Azure:
 
