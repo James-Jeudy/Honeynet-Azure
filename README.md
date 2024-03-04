@@ -26,7 +26,7 @@ Here are the listed components that were found in the architecture of the honeyp
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
+- Virtual Machines (2 windows, 1 linux). One of the Windows-VM's was an attack VM used to generate logs.
 - Log Analytics Workspace
 - Azure Key Vault
 - Azure Storage Account
